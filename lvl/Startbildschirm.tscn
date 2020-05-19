@@ -52,7 +52,7 @@ custom_constants/margin_top = 0
 custom_constants/margin_bottom = 0
 
 [node name="TextureButton" type="TextureButton" parent="MarginContainer"]
-margin_right = 41.0
+margin_right = 61.0
 margin_bottom = 21.0
 texture_normal = ExtResource( 2 )
 texture_pressed = ExtResource( 3 )

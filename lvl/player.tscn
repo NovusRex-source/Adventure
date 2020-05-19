@@ -1,0 +1,49 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://lvl/Player.gd" type="Script" id=1]
+[ext_resource path="res://Animations/idle.tres" type="Animation" id=2]
+[ext_resource path="res://Animations/walkdown.tres" type="Animation" id=3]
+[ext_resource path="res://Animations/walkleft.tres" type="Animation" id=4]
+[ext_resource path="res://Animations/walkright.tres" type="Animation" id=5]
+[ext_resource path="res://Animations/walkup.tres" type="Animation" id=6]
+[ext_resource path="res://Charakter.png" type="Texture" id=7]
+[ext_resource path="res://steuerung.tscn" type="PackedScene" id=8]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 1.84921
+height = 12.8462
+
+[node name="Game" type="Node2D"]
+
+[node name="Player" type="KinematicBody2D" parent="."]
+position = Vector2( -135.424, -70.4029 )
+script = ExtResource( 1 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Player"]
+anims/idle = ExtResource( 2 )
+anims/walkdown = ExtResource( 3 )
+anims/walkleft = ExtResource( 4 )
+anims/walkright = ExtResource( 5 )
+anims/walkup = ExtResource( 6 )
+
+[node name="Sprite" type="Sprite" parent="Player"]
+position = Vector2( 95.6167, 77.5736 )
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 7 )
+vframes = 8
+hframes = 4
+frame = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+position = Vector2( 95.5984, 86.587 )
+rotation = 1.57079
+shape = SubResource( 1 )
+
+[node name="Node2D" parent="Player" instance=ExtResource( 8 )]
+position = Vector2( -21.4241, 15.9004 )
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2( 97.3854, 82.1071 )
+current = true
+zoom = Vector2( 1.5, 1.5 )
+smoothing_speed = 75.0

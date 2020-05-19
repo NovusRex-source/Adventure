@@ -1,59 +1,9 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://tileset/gras.tres" type="TileSet" id=1]
-[ext_resource path="res://Animations/idle.tres" type="Animation" id=2]
-[ext_resource path="res://Animations/walkdown.tres" type="Animation" id=3]
-[ext_resource path="res://Animations/walkleft.tres" type="Animation" id=4]
-[ext_resource path="res://Animations/walkright.tres" type="Animation" id=5]
-[ext_resource path="res://Animations/walkup.tres" type="Animation" id=6]
-[ext_resource path="res://Assets/Charakter.png" type="Texture" id=7]
+[ext_resource path="res://lvl/player.tscn" type="PackedScene" id=2]
 
-[sub_resource type="GDScript" id=6]
-script/source = "extends KinematicBody2D
 
-func _ready():
-	pass 
-func _process(delta):
-	var movement = Vector2(0,0)
-	
-
-	if Input.is_action_pressed(\"left\"):
-		if Input.is_action_pressed(\"right\") ==false:
-			if Input.is_action_pressed(\"up\") ==false:
-				if Input.is_action_pressed(\"down\") ==false:
-					movement.x =  -25
-					$AnimationPlayer.play(\"walkleft\")
-			
-	if Input.is_action_pressed(\"right\"):
-		if Input.is_action_pressed(\"left\") ==false:
-			if Input.is_action_pressed(\"up\") ==false:
-				if Input.is_action_pressed(\"down\") ==false:
-					movement.x = +25
-					$AnimationPlayer.play(\"walkright\")
-
-	if Input.is_action_pressed(\"up\"):
-		if Input.is_action_pressed(\"right\") ==false:
-			if Input.is_action_pressed(\"left\") ==false:
-				if Input.is_action_pressed(\"down\") ==false:
-					movement.y = -25
-					$AnimationPlayer.play(\"walkup\")
-			
-	if Input.is_action_pressed(\"down\"):
-		if Input.is_action_pressed(\"right\") ==false:
-			if Input.is_action_pressed(\"up\") ==false:
-				if Input.is_action_pressed(\"left\") ==false:
-					movement.y = +25
-					$AnimationPlayer.play(\"walkdown\")
-	#if position.x == 10:
-		
-	if movement.y == 0:
-		if movement.x == 0:
-			$AnimationPlayer.play(\"idle\")
-
-	move_and_slide(movement)"
-
-[sub_resource type="RectangleShape2D" id=7]
-extents = Vector2( 7, 9 )
 
 [node name="Game" type="Node2D"]
 
@@ -69,30 +19,8 @@ cell_size = Vector2( 20, 20 )
 format = 1
 tile_data = PoolIntArray( 327685, 16, 0, 327688, 16, 0, 327691, 16, 0, 327694, 16, 0, 524293, 16, 0, 524296, 16, 0, 524299, 16, 0, 524302, 16, 0 )
 
-[node name="Player" type="KinematicBody2D" parent="."]
-script = SubResource( 6 )
-
-[node name="Camera2D" type="Camera2D" parent="Player"]
-position = Vector2( 96.2973, 80.8603 )
-current = true
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Player"]
-anims/idle = ExtResource( 2 )
-anims/walkdown = ExtResource( 3 )
-anims/walkleft = ExtResource( 4 )
-anims/walkright = ExtResource( 5 )
-anims/walkup = ExtResource( 6 )
-
-[node name="Sprite" type="Sprite" parent="Player"]
-position = Vector2( 95.6167, 77.5736 )
-texture = ExtResource( 7 )
-vframes = 8
-hframes = 4
-frame = 4
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
-position = Vector2( 95.6107, 77.5736 )
-shape = SubResource( 7 )
+[node name="Game" parent="." instance=ExtResource( 2 )]
+position = Vector2( 136.8, 171 )
 
 [node name="Tabel" type="TileMap" parent="."]
 tile_set = ExtResource( 1 )
