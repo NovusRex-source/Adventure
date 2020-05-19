@@ -1,0 +1,304 @@
+[gd_scene load_steps=28 format=2]
+
+[ext_resource path="res://Assets/drehbank.png" type="Texture" id=1]
+[ext_resource path="res://Assets/bankdreh.png" type="Texture" id=2]
+[ext_resource path="res://wks.gd" type="Script" id=3]
+[ext_resource path="res://werkbutton.gd" type="Script" id=4]
+[ext_resource path="res://Assets/drexel.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Start_pressed.png" type="Texture" id=6]
+[ext_resource path="res://anschalten.gd" type="Script" id=7]
+[ext_resource path="res://wksarea.gd" type="Script" id=8]
+[ext_resource path="res://wksarea2.gd" type="Script" id=9]
+[ext_resource path="res://wksarea3.gd" type="Script" id=10]
+[ext_resource path="res://wksarea4.gd" type="Script" id=11]
+[ext_resource path="res://wksarea5.gd" type="Script" id=12]
+[ext_resource path="res://Assets/werksatt.jpg" type="Texture" id=13]
+[ext_resource path="res://Assets/polyhelp.png" type="Texture" id=14]
+[ext_resource path="res://Assets/polycuttingline.png" type="Texture" id=15]
+[ext_resource path="res://exitpoly.gd" type="Script" id=16]
+[ext_resource path="res://Assets/img_exit.png" type="Texture" id=17]
+[ext_resource path="res://polymechanik.gd" type="Script" id=18]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 0.0577135, 0.0193529 )
+
+[sub_resource type="Animation" id=2]
+resource_name = "cutting1"
+length = 0.2
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 5, 9 ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "cutting2"
+length = 0.2
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 10, 14 ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "cutting3"
+length = 0.2
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 15, 19 ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "cutting4"
+length = 0.2
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 20, 24 ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "cutting5"
+length = 0.2
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 25 ]
+}
+
+[sub_resource type="Animation" id=7]
+length = 0.2
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 5, 0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("wks:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0, 5 ]
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "finished"
+length = 0.2
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 30, 34 ]
+}
+
+[sub_resource type="RectangleShape2D" id=9]
+extents = Vector2( 2.2252, 0.609343 )
+
+[node name="polymechanik" type="Node2D"]
+script = ExtResource( 18 )
+
+[node name="werksatt" type="Sprite" parent="."]
+position = Vector2( 90.0359, 31.0654 )
+scale = Vector2( 0.387265, 0.368264 )
+texture = ExtResource( 13 )
+
+[node name="bankdreh" type="Sprite" parent="."]
+position = Vector2( 74.2265, 60.9049 )
+texture = ExtResource( 2 )
+
+[node name="polyhelp2" type="Sprite" parent="."]
+position = Vector2( 90.9496, 32.5703 )
+rotation = 1.57079
+scale = Vector2( 0.320536, 0.320536 )
+texture = ExtResource( 14 )
+
+[node name="polyhelp3" type="Sprite" parent="."]
+position = Vector2( 15.8882, 22.4826 )
+rotation = 1.57079
+scale = Vector2( 0.40533, 0.40533 )
+texture = ExtResource( 14 )
+
+[node name="werkbutton" type="TouchScreenButton" parent="."]
+position = Vector2( 9.2948, 28.9995 )
+scale = Vector2( 1.5, 1.5 )
+normal = ExtResource( 5 )
+passby_press = true
+action = "werk"
+script = ExtResource( 4 )
+
+[node name="werk" type="Area2D" parent="werkbutton"]
+position = Vector2( 2.65372, 22.971 )
+
+[node name="colwerk" type="CollisionShape2D" parent="werkbutton/werk"]
+scale = Vector2( 13.8769, 5.49885 )
+shape = SubResource( 1 )
+
+[node name="wks" type="Sprite" parent="."]
+position = Vector2( 83.2147, 48.9872 )
+scale = Vector2( 1.55463, 1.55463 )
+texture = ExtResource( 1 )
+vframes = 8
+hframes = 5
+frame = 5
+script = ExtResource( 3 )
+
+[node name="anschalten" type="TouchScreenButton" parent="wks"]
+position = Vector2( -39.4824, -4.21018 )
+scale = Vector2( 0.244805, 0.164747 )
+normal = ExtResource( 6 )
+script = ExtResource( 7 )
+
+[node name="aniwks" type="AnimationPlayer" parent="wks"]
+playback_process_mode = 0
+anims/cutting1 = SubResource( 2 )
+anims/cutting2 = SubResource( 3 )
+anims/cutting3 = SubResource( 4 )
+anims/cutting4 = SubResource( 5 )
+anims/cutting5 = SubResource( 6 )
+anims/drehbankidle = SubResource( 7 )
+anims/finished = SubResource( 8 )
+
+[node name="polycuttingline" type="Sprite" parent="."]
+position = Vector2( 90.8618, 48.3083 )
+scale = Vector2( -0.151043, 0.42507 )
+texture = ExtResource( 15 )
+
+[node name="polyhelp" type="Sprite" parent="."]
+position = Vector2( 30.0185, 55.0423 )
+rotation = -1.57079
+scale = Vector2( 0.396766, 0.396766 )
+texture = ExtResource( 14 )
+
+[node name="wksarea" type="Area2D" parent="."]
+script = ExtResource( 8 )
+
+[node name="colwks" type="CollisionShape2D" parent="wksarea"]
+position = Vector2( 90.3926, 42.0986 )
+shape = SubResource( 9 )
+
+[node name="wksarea2" type="Area2D" parent="."]
+visible = false
+script = ExtResource( 9 )
+
+[node name="colwks" type="CollisionShape2D" parent="wksarea2"]
+position = Vector2( 90.5465, 43.8436 )
+shape = SubResource( 9 )
+
+[node name="wksarea3" type="Area2D" parent="."]
+visible = false
+script = ExtResource( 10 )
+
+[node name="colwks" type="CollisionShape2D" parent="wksarea3"]
+position = Vector2( 90.6789, 45.4518 )
+shape = SubResource( 9 )
+
+[node name="wksarea4" type="Area2D" parent="."]
+visible = false
+script = ExtResource( 11 )
+
+[node name="colwks" type="CollisionShape2D" parent="wksarea4"]
+position = Vector2( 90.8744, 46.9166 )
+shape = SubResource( 9 )
+
+[node name="wksarea5" type="Area2D" parent="."]
+visible = false
+script = ExtResource( 12 )
+
+[node name="colwks" type="CollisionShape2D" parent="wksarea5"]
+position = Vector2( 90.9112, 48.2877 )
+shape = SubResource( 9 )
+
+[node name="exitpoly" type="TextureButton" parent="."]
+margin_top = 69.9405
+margin_right = 20.0
+margin_bottom = 89.9405
+texture_normal = ExtResource( 17 )
+script = ExtResource( 16 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="fettig" from="wks" to="werkbutton" method="_on_wks_fettig"]
+[connection signal="pressed" from="wks/anschalten" to="werkbutton" method="_on_anschalten_pressed"]
+[connection signal="pressed" from="wks/anschalten" to="wks/anschalten" method="_on_anschalten_pressed"]
+[connection signal="pressed" from="wks/anschalten" to="wks" method="_on_anschalten_pressed"]
+[connection signal="area" from="wksarea" to="wksarea2" method="_on_wksarea_area"]
+[connection signal="area" from="wksarea" to="." method="_on_wksarea_area"]
+[connection signal="area_entered" from="wksarea" to="wksarea" method="_on_wksarea_area_entered"]
+[connection signal="area_entered" from="wksarea" to="wks" method="_on_wksarea_area_entered"]
+[connection signal="area2" from="wksarea2" to="wksarea3" method="_on_wksarea2_area2"]
+[connection signal="area2" from="wksarea2" to="." method="_on_wksarea2_area2"]
+[connection signal="area_entered" from="wksarea2" to="wksarea2" method="_on_wksarea2_area_entered"]
+[connection signal="area_entered" from="wksarea2" to="wks" method="_on_wksarea2_area_entered"]
+[connection signal="area3" from="wksarea3" to="wksarea4" method="_on_wksarea3_area3"]
+[connection signal="area3" from="wksarea3" to="." method="_on_wksarea3_area3"]
+[connection signal="area_entered" from="wksarea3" to="wksarea3" method="_on_wksarea3_area_entered"]
+[connection signal="area_entered" from="wksarea3" to="wks" method="_on_wksarea3_area_entered"]
+[connection signal="area4" from="wksarea4" to="wksarea5" method="_on_wksarea4_area4"]
+[connection signal="area4" from="wksarea4" to="." method="_on_wksarea4_area4"]
+[connection signal="area_entered" from="wksarea4" to="wksarea4" method="_on_wksarea4_area_entered"]
+[connection signal="area_entered" from="wksarea4" to="wks" method="_on_wksarea4_area_entered"]
+[connection signal="area5" from="wksarea5" to="." method="_on_wksarea5_area5"]
+[connection signal="area_entered" from="wksarea5" to="wksarea5" method="_on_wksarea5_area_entered"]
+[connection signal="area_entered" from="wksarea5" to="wks" method="_on_wksarea5_area_entered"]
+[connection signal="pressed" from="exitpoly" to="exitpoly" method="_on_exitpoly_pressed"]

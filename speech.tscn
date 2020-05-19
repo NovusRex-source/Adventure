@@ -1,0 +1,77 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://speech.gd" type="Script" id=1]
+[ext_resource path="res://Assets/logoauto.png" type="Texture" id=2]
+[ext_resource path="res://Assets/speeech.png" type="Texture" id=3]
+[ext_resource path="res://Assets/logokonst.png" type="Texture" id=4]
+[ext_resource path="res://Assets/img_exit.png" type="Texture" id=5]
+[ext_resource path="res://Assets/logopoly.png" type="Texture" id=6]
+[ext_resource path="res://Assets/logoinf.png" type="Texture" id=7]
+
+[node name="speech" type="Node2D"]
+position = Vector2( 77.5441, 36.3491 )
+scale = Vector2( 0.165155, 0.165155 )
+script = ExtResource( 1 )
+
+[node name="speeech" type="Sprite" parent="."]
+position = Vector2( 83.5085, 94.4153 )
+texture = ExtResource( 3 )
+
+[node name="tp1" type="TextureButton" parent="."]
+margin_left = 227.492
+margin_top = 161.0
+margin_right = 248.492
+margin_bottom = 181.0
+rect_scale = Vector2( 5.92424, 5.92424 )
+texture_normal = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="tp2" type="TextureButton" parent="."]
+margin_left = 450.48
+margin_top = 161.0
+margin_right = 471.48
+margin_bottom = 181.0
+rect_scale = Vector2( 5.92424, 5.92424 )
+texture_normal = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="tp3" type="TextureButton" parent="."]
+margin_top = 161.0
+margin_right = 21.0
+margin_bottom = 181.0
+rect_scale = Vector2( 5.92424, 5.92424 )
+texture_normal = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="tp4" type="TextureButton" parent="."]
+margin_left = -237.635
+margin_top = 161.0
+margin_right = -216.635
+margin_bottom = 181.0
+rect_scale = Vector2( 5.92424, 5.92424 )
+texture_normal = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="tp5" type="TextureButton" parent="."]
+margin_left = -434.631
+margin_top = 161.0
+margin_right = -413.631
+margin_bottom = 181.0
+rect_scale = Vector2( 5.92424, 5.92424 )
+texture_normal = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="tp1" to="." method="_on_tp1_pressed"]
+[connection signal="pressed" from="tp2" to="." method="_on_tp2_pressed"]
+[connection signal="pressed" from="tp3" to="." method="_on_tp3_pressed"]
+[connection signal="pressed" from="tp4" to="." method="_on_tp4_pressed"]
+[connection signal="pressed" from="tp5" to="." method="_on_tp5_pressed"]

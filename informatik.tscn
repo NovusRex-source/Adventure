@@ -1,0 +1,339 @@
+[gd_scene load_steps=47 format=2]
+
+[ext_resource path="res://informatik.gd" type="Script" id=1]
+[ext_resource path="res://Assets/ground-plug.jpg" type="Texture" id=2]
+[ext_resource path="res://Assets/mb1.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Mainboard.PNG" type="Texture" id=4]
+[ext_resource path="res://Mainboard.gd" type="Script" id=5]
+[ext_resource path="res://Assets/Prozessor.PNG" type="Texture" id=6]
+[ext_resource path="res://Prozessor.gd" type="Script" id=7]
+[ext_resource path="res://Assets/Waermeleitpaste.PNG" type="Texture" id=8]
+[ext_resource path="res://Waermeleitpaste.gd" type="Script" id=9]
+[ext_resource path="res://Assets/CPULuefter.PNG" type="Texture" id=10]
+[ext_resource path="res://CPULuefter.gd" type="Script" id=11]
+[ext_resource path="res://Assets/Arbeitsspeicher.PNG" type="Texture" id=12]
+[ext_resource path="res://Arbeitsspeicher.gd" type="Script" id=13]
+[ext_resource path="res://Assets/Grafikkarte.PNG" type="Texture" id=14]
+[ext_resource path="res://Grafikkarte.gd" type="Script" id=15]
+[ext_resource path="res://Assets/rtx_side.png" type="Texture" id=16]
+[ext_resource path="res://rtx_side.gd" type="Script" id=17]
+[ext_resource path="res://Assets/ram2.png" type="Texture" id=18]
+[ext_resource path="res://ram2.gd" type="Script" id=19]
+[ext_resource path="res://Assets/Ryzen-Su-640x640.jpg" type="Texture" id=20]
+[ext_resource path="res://Ryzen-Su-640x640.gd" type="Script" id=21]
+[ext_resource path="res://Assets/wlpp.png" type="Texture" id=22]
+[ext_resource path="res://wlpp.gd" type="Script" id=23]
+[ext_resource path="res://Assets/fan2.png" type="Texture" id=24]
+[ext_resource path="res://fan2.gd" type="Script" id=25]
+[ext_resource path="res://cpu.gd" type="Script" id=26]
+[ext_resource path="res://Assets/ram.png" type="Texture" id=27]
+[ext_resource path="res://ram.gd" type="Script" id=28]
+[ext_resource path="res://Assets/rtx.png" type="Texture" id=29]
+[ext_resource path="res://gpu.gd" type="Script" id=30]
+[ext_resource path="res://Assets/wlp.png" type="Texture" id=31]
+[ext_resource path="res://wlp.gd" type="Script" id=32]
+[ext_resource path="res://Assets/fan.png" type="Texture" id=33]
+[ext_resource path="res://fan.gd" type="Script" id=34]
+[ext_resource path="res://areasocket.gd" type="Script" id=35]
+[ext_resource path="res://areasocketwlp.gd" type="Script" id=36]
+[ext_resource path="res://areasocketfan.gd" type="Script" id=37]
+[ext_resource path="res://arearam.gd" type="Script" id=38]
+[ext_resource path="res://areagpu.gd" type="Script" id=39]
+[ext_resource path="res://Assets/img_exit.png" type="Texture" id=40]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 107.134, 56.0723 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 56.7191, 57.1392 )
+
+[sub_resource type="CircleShape2D" id=3]
+radius = 44.7678
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 69.8601, 82.4258 )
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 208.542, 24.4656 )
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 10, 169.928 )
+
+[node name="informatik" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="ground-plug" type="Sprite" parent="."]
+position = Vector2( 126.651, 42.2052 )
+scale = Vector2( 0.202294, 0.202294 )
+texture = ExtResource( 2 )
+
+[node name="mb1" type="Sprite" parent="ground-plug"]
+position = Vector2( 80.6655, 6.84464 )
+rotation = -1.57079
+scale = Vector2( 0.274776, 0.274776 )
+texture = ExtResource( 3 )
+
+[node name="Mainboard" type="Sprite" parent="ground-plug"]
+position = Vector2( 54.662, 102.761 )
+scale = Vector2( 0.93943, 0.93943 )
+texture = ExtResource( 4 )
+script = ExtResource( 5 )
+
+[node name="Prozessor" type="Sprite" parent="ground-plug"]
+position = Vector2( -374.938, -118.632 )
+scale = Vector2( 0.899709, 0.899709 )
+texture = ExtResource( 6 )
+script = ExtResource( 7 )
+
+[node name="Waermeleitpaste" type="Sprite" parent="ground-plug"]
+visible = false
+position = Vector2( -366.622, -136.367 )
+scale = Vector2( 0.938123, 0.938123 )
+texture = ExtResource( 8 )
+script = ExtResource( 9 )
+
+[node name="CPULuefter" type="Sprite" parent="ground-plug"]
+visible = false
+position = Vector2( -377.312, -126.858 )
+scale = Vector2( 0.938124, 0.938123 )
+texture = ExtResource( 10 )
+script = ExtResource( 11 )
+
+[node name="Arbeitsspeicher" type="Sprite" parent="ground-plug"]
+visible = false
+position = Vector2( -361.578, -119.189 )
+scale = Vector2( 0.826527, 0.826527 )
+texture = ExtResource( 12 )
+script = ExtResource( 13 )
+
+[node name="Grafikkarte" type="Sprite" parent="ground-plug"]
+visible = false
+position = Vector2( -357.92, -127.75 )
+scale = Vector2( 0.826527, 0.826527 )
+texture = ExtResource( 14 )
+script = ExtResource( 15 )
+
+[node name="rtx_side" type="Sprite" parent="."]
+visible = false
+position = Vector2( 144.826, 58.9459 )
+rotation = -3.14159
+scale = Vector2( 0.057135, 0.057135 )
+texture = ExtResource( 16 )
+script = ExtResource( 17 )
+
+[node name="ram2" type="Sprite" parent="."]
+visible = false
+position = Vector2( 164.278, 25.8816 )
+rotation = -1.57079
+scale = Vector2( 0.019, 0.019 )
+texture = ExtResource( 18 )
+script = ExtResource( 19 )
+
+[node name="Ryzen-Su-640x640" type="Sprite" parent="."]
+visible = false
+position = Vector2( 145.167, 25.5755 )
+rotation = -6.28318
+scale = Vector2( 0.0189541, 0.0189541 )
+texture = ExtResource( 20 )
+script = ExtResource( 21 )
+
+[node name="wlpp" type="Sprite" parent="."]
+visible = false
+position = Vector2( 146.055, 25.2767 )
+scale = Vector2( 0.08, 0.08 )
+texture = ExtResource( 22 )
+script = ExtResource( 23 )
+
+[node name="fan2" type="Sprite" parent="."]
+visible = false
+position = Vector2( 145.749, 23.9081 )
+rotation = 1.57079
+scale = Vector2( 0.051861, 0.051861 )
+texture = ExtResource( 24 )
+script = ExtResource( 25 )
+
+[node name="cpu" type="TouchScreenButton" parent="."]
+position = Vector2( 8.15091, 29.241 )
+scale = Vector2( 0.0194894, 0.0194894 )
+normal = ExtResource( 20 )
+action = "cpuon"
+script = ExtResource( 26 )
+
+[node name="areacpu" type="Area2D" parent="cpu"]
+position = Vector2( 6.00046, 5.39961 )
+scale = Vector2( 0.0196596, 0.0196596 )
+
+[node name="colcpu" type="CollisionShape2D" parent="cpu/areacpu"]
+position = Vector2( 15020, 14766.2 )
+scale = Vector2( 56.9463, -89.7897 )
+shape = SubResource( 1 )
+
+[node name="ram" type="TouchScreenButton" parent="."]
+visible = false
+position = Vector2( 29.2392, 26.8057 )
+rotation = 1.57079
+scale = Vector2( 0.0146526, 0.0146526 )
+normal = ExtResource( 27 )
+action = "ramon"
+script = ExtResource( 28 )
+
+[node name="arearam" type="Area2D" parent="ram"]
+position = Vector2( 35.2452, 52.5555 )
+rotation = 1.57079
+scale = Vector2( 0.0145174, 0.0145174 )
+
+[node name="colram" type="CollisionShape2D" parent="ram/arearam"]
+position = Vector2( 93126, -102812 )
+rotation = -3.14159
+scale = Vector2( 59.6788, 714.767 )
+shape = SubResource( 1 )
+
+[node name="gpu" type="TouchScreenButton" parent="."]
+visible = false
+position = Vector2( 2.47521, 29.219 )
+scale = Vector2( 0.0663085, 0.0663085 )
+normal = ExtResource( 29 )
+action = "gpuon"
+script = ExtResource( 30 )
+
+[node name="areagpu" type="Area2D" parent="gpu"]
+position = Vector2( 603.351, 228.8 )
+scale = Vector2( 0.879131, 0.879131 )
+
+[node name="colgpu" type="CollisionShape2D" parent="gpu/areagpu"]
+position = Vector2( -46.3293, 276.103 )
+scale = Vector2( 2.04432, 0.499493 )
+shape = SubResource( 1 )
+
+[node name="wlp" type="TouchScreenButton" parent="."]
+visible = false
+position = Vector2( 26.7282, 24.6759 )
+scale = Vector2( 0.0375061, 0.0375061 )
+normal = ExtResource( 31 )
+action = "wlpon"
+script = ExtResource( 32 )
+
+[node name="areawlp" type="Area2D" parent="wlp"]
+position = Vector2( 310.601, 260.797 )
+scale = Vector2( 0.976582, 0.976582 )
+
+[node name="colwlp" type="CollisionShape2D" parent="wlp/areawlp"]
+position = Vector2( -293.11, 142.2 )
+scale = Vector2( 0.281487, 0.551335 )
+shape = SubResource( 1 )
+
+[node name="fan" type="TouchScreenButton" parent="."]
+visible = false
+position = Vector2( 15.8386, 28.8097 )
+scale = Vector2( 0.0591125, 0.0591125 )
+normal = ExtResource( 33 )
+action = "fanon"
+script = ExtResource( 34 )
+
+[node name="areafan" type="Area2D" parent="fan"]
+position = Vector2( 388.711, 261.752 )
+rotation = -1.57079
+scale = Vector2( 0.619629, 0.619629 )
+
+[node name="colfan" type="CollisionShape2D" parent="fan/areafan"]
+position = Vector2( -5.42493, 13.908 )
+scale = Vector2( 1, 1.76514 )
+shape = SubResource( 1 )
+
+[node name="areasocket" type="Area2D" parent="."]
+position = Vector2( 145.681, 25.9621 )
+rotation = -1.57079
+scale = Vector2( 0.0555854, 0.0555854 )
+script = ExtResource( 35 )
+
+[node name="colsocket" type="CollisionShape2D" parent="areasocket"]
+position = Vector2( 9.73459, -7.30103 )
+shape = SubResource( 2 )
+
+[node name="areasocketwlp" type="Area2D" parent="."]
+visible = false
+position = Vector2( 145.766, 25.5829 )
+rotation = -1.57079
+scale = Vector2( 0.0555854, 0.0555854 )
+script = ExtResource( 36 )
+
+[node name="colsocketwlp" type="CollisionShape2D" parent="areasocketwlp"]
+shape = SubResource( 3 )
+
+[node name="areasocketfan" type="Area2D" parent="."]
+visible = false
+position = Vector2( 142.969, 43.5898 )
+rotation = -1.57079
+scale = Vector2( 0.0555854, 0.0555854 )
+script = ExtResource( 37 )
+
+[node name="colsocketfan" type="CollisionShape2D" parent="areasocketfan"]
+position = Vector2( 317.953, 48.4814 )
+shape = SubResource( 4 )
+
+[node name="arearam" type="Area2D" parent="."]
+visible = false
+position = Vector2( 161.583, 27.2951 )
+rotation = -1.57079
+scale = Vector2( 0.0555854, 0.0555854 )
+script = ExtResource( 38 )
+
+[node name="colram" type="CollisionShape2D" parent="arearam"]
+shape = SubResource( 5 )
+
+[node name="areagpu" type="Area2D" parent="."]
+visible = false
+position = Vector2( 142.969, 43.5898 )
+rotation = -1.57079
+scale = Vector2( 0.0555854, 0.0555854 )
+script = ExtResource( 39 )
+
+[node name="colgpu" type="CollisionShape2D" parent="areagpu"]
+position = Vector2( -171.364, -118.636 )
+shape = SubResource( 6 )
+
+[node name="exit2" type="TextureButton" parent="."]
+margin_left = -0.489712
+margin_top = 70.1784
+margin_right = 19.5103
+margin_bottom = 90.1784
+texture_normal = ExtResource( 40 )
+[connection signal="area_entered" from="areasocket" to="areasocket" method="_on_areasocket_area_entered"]
+[connection signal="cpudone" from="areasocket" to="areasocketwlp" method="_on_areasocket_cpudone"]
+[connection signal="cpudone" from="areasocket" to="Ryzen-Su-640x640" method="_on_areasocket_cpudone"]
+[connection signal="cpudone" from="areasocket" to="wlp" method="_on_areasocket_cpudone"]
+[connection signal="cpudone" from="areasocket" to="cpu" method="_on_areasocket_cpudone"]
+[connection signal="cpudone" from="areasocket" to="ground-plug/Prozessor" method="_on_areasocket_cpudone"]
+[connection signal="cpudone" from="areasocket" to="ground-plug/Mainboard" method="_on_areasocket_cpudone"]
+[connection signal="cpudone" from="areasocket" to="ground-plug/Waermeleitpaste" method="_on_areasocket_cpudone"]
+[connection signal="area_entered" from="areasocketwlp" to="areasocketwlp" method="_on_areasocketwlp_area_entered"]
+[connection signal="wlpdone" from="areasocketwlp" to="areasocketfan" method="_on_areasocketwlp_wlpdone"]
+[connection signal="wlpdone" from="areasocketwlp" to="areasocketwlp" method="_on_areasocketwlp_wlpdone"]
+[connection signal="wlpdone" from="areasocketwlp" to="wlpp" method="_on_areasocketwlp_wlpdone"]
+[connection signal="wlpdone" from="areasocketwlp" to="wlp" method="_on_areasocketwlp_wlpdone"]
+[connection signal="wlpdone" from="areasocketwlp" to="fan" method="_on_areasocketwlp_wlpdone"]
+[connection signal="wlpdone" from="areasocketwlp" to="ground-plug/Waermeleitpaste" method="_on_areasocketwlp_wlpdone"]
+[connection signal="wlpdone" from="areasocketwlp" to="ground-plug/CPULuefter" method="_on_areasocketwlp_wlpdone"]
+[connection signal="area_entered" from="areasocketfan" to="areasocketfan" method="_on_areasocketfan_area_entered"]
+[connection signal="fandone" from="areasocketfan" to="areasocketfan" method="_on_areasocketfan_fandone"]
+[connection signal="fandone" from="areasocketfan" to="fan2" method="_on_areasocketfan_fandone"]
+[connection signal="fandone" from="areasocketfan" to="ground-plug/Arbeitsspeicher" method="_on_areasocketfan_fandone"]
+[connection signal="fandone" from="areasocketfan" to="ram" method="_on_areasocketfan_fandone"]
+[connection signal="fandone" from="areasocketfan" to="fan" method="_on_areasocketfan_fandone"]
+[connection signal="fandone" from="areasocketfan" to="ground-plug/Waermeleitpaste" method="_on_areasocketfan_fandone"]
+[connection signal="fandone" from="areasocketfan" to="ground-plug/CPULuefter" method="_on_areasocketfan_fandone"]
+[connection signal="area_entered" from="arearam" to="arearam" method="_on_arearam_area_entered"]
+[connection signal="ramdone" from="arearam" to="arearam" method="_on_arearam_ramdone"]
+[connection signal="ramdone" from="arearam" to="areagpu" method="_on_arearam_ramdone"]
+[connection signal="ramdone" from="arearam" to="ram2" method="_on_arearam_ramdone"]
+[connection signal="ramdone" from="arearam" to="ground-plug/Arbeitsspeicher" method="_on_arearam_ramdone"]
+[connection signal="ramdone" from="arearam" to="ground-plug/Grafikkarte" method="_on_arearam_ramdone"]
+[connection signal="ramdone" from="arearam" to="ram" method="_on_arearam_ramdone"]
+[connection signal="ramdone" from="arearam" to="gpu" method="_on_arearam_ramdone"]
+[connection signal="area_entered" from="areagpu" to="areagpu" method="_on_areagpu_area_entered"]
+[connection signal="gpudone" from="areagpu" to="areagpu" method="_on_areagpu_gpudone"]
+[connection signal="gpudone" from="areagpu" to="ground-plug/Grafikkarte" method="_on_areagpu_gpudone"]
+[connection signal="gpudone" from="areagpu" to="rtx_side" method="_on_areagpu_gpudone"]
+[connection signal="gpudone" from="areagpu" to="gpu" method="_on_areagpu_gpudone"]
+[connection signal="gpudone" from="areagpu" to="." method="_on_areagpu_gpudone"]
+[connection signal="pressed" from="exit2" to="." method="_on_exit2_pressed"]

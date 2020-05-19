@@ -1,0 +1,311 @@
+[gd_scene load_steps=28 format=2]
+
+[ext_resource path="res://Assets/action_taste_pressed.png" type="Texture" id=1]
+[ext_resource path="res://Assets/bohrer.png" type="Texture" id=2]
+[ext_resource path="res://bohrer.gd" type="Script" id=3]
+[ext_resource path="res://Assets/bohren.png" type="Texture" id=4]
+[ext_resource path="res://Assets/bohrerziel.png" type="Texture" id=5]
+[ext_resource path="res://bohrertop.gd" type="Script" id=6]
+[ext_resource path="res://Assets/touchwalk_pressed.png" type="Texture" id=7]
+[ext_resource path="res://loch1.gd" type="Script" id=8]
+[ext_resource path="res://polymechanik2.gd" type="Script" id=9]
+[ext_resource path="res://Assets/icon.png" type="Texture" id=10]
+[ext_resource path="res://loch2.gd" type="Script" id=11]
+[ext_resource path="res://loch3.gd" type="Script" id=12]
+[ext_resource path="res://loch4.gd" type="Script" id=13]
+[ext_resource path="res://loch5.gd" type="Script" id=14]
+[ext_resource path="res://loch7.gd" type="Script" id=15]
+[ext_resource path="res://loch6.gd" type="Script" id=16]
+[ext_resource path="res://exitpoly.gd" type="Script" id=17]
+[ext_resource path="res://Assets/img_exit.png" type="Texture" id=18]
+[ext_resource path="res://Assets/funken.png" type="Texture" id=19]
+[ext_resource path="res://funken.gd" type="Script" id=20]
+[ext_resource path="res://Assets/n1PabXW.jpg" type="Texture" id=21]
+
+[sub_resource type="Animation" id=1]
+resource_name = "bohren"
+length = 0.5
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 3, 0 ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "funkenaction"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 4, 11 ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "funkenidle"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 0, 2 ]
+}
+
+[sub_resource type="CircleShape2D" id=4]
+
+[sub_resource type="CircleShape2D" id=5]
+radius = 34.8702
+
+[sub_resource type="CircleShape2D" id=6]
+radius = 1.1322
+
+[node name="polymechanik2" type="Node2D"]
+position = Vector2( 20.9559, 8.38239 )
+script = ExtResource( 9 )
+
+[node name="n1PabXW" type="Sprite" parent="."]
+position = Vector2( 70.9566, 35.3985 )
+scale = Vector2( 0.317697, 0.317697 )
+texture = ExtResource( 21 )
+
+[node name="bohrer" type="Sprite" parent="."]
+position = Vector2( 37.971, 19.5256 )
+texture = ExtResource( 2 )
+hframes = 4
+script = ExtResource( 3 )
+
+[node name="animationbohrer" type="AnimationPlayer" parent="bohrer"]
+anims/bohren = SubResource( 1 )
+
+[node name="funken" type="Sprite" parent="."]
+position = Vector2( 37.3363, 37.8575 )
+texture = ExtResource( 19 )
+vframes = 3
+hframes = 4
+frame = 2
+script = ExtResource( 20 )
+
+[node name="animationfunken" type="AnimationPlayer" parent="funken"]
+anims/funkenaction = SubResource( 2 )
+anims/funkenidle = SubResource( 3 )
+
+[node name="bohrerdown" type="TouchScreenButton" parent="."]
+position = Vector2( 26.9136, 45.322 )
+normal = ExtResource( 1 )
+action = "sprint"
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2( 75.587, 54.5223 )
+scale = Vector2( 0.149139, 0.149139 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2( -167.816, 65.4891 )
+build_mode = 1
+polygon = PoolVector2Array( 16.049, 7.79019, 438.136, 8.44815, 438.308, -439.834, -10.8424, -437.366, -10.8424, 10.55, 2.73083, 8.08209, 2.26172, -3.4119, 1.40009, -428.23, 430.526, -429.953, 427.203, -7.95898, 1.40009, -1.68851, 2.73083, 8.08209 )
+
+[node name="werkstück" type="Sprite" parent="StaticBody2D"]
+position = Vector2( 46.834, -149.319 )
+scale = Vector2( 1.49226, 1.49226 )
+texture = ExtResource( 4 )
+
+[node name="bohrertop" type="KinematicBody2D" parent="."]
+position = Vector2( 77.699, 54.7202 )
+scale = Vector2( 0.149139, 0.149139 )
+z_index = 1
+collision/safe_margin = 0.001
+script = ExtResource( 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bohrertop"]
+z_index = 1
+shape = SubResource( 4 )
+
+[node name="bohrerziel" type="Sprite" parent="bohrertop"]
+position = Vector2( 2.16461, 1.77643 )
+scale = Vector2( 4.09599, 4.09599 )
+texture = ExtResource( 5 )
+
+[node name="up" type="TouchScreenButton" parent="."]
+position = Vector2( 124.587, 13.6278 )
+normal = ExtResource( 7 )
+action = "up"
+
+[node name="down" type="TouchScreenButton" parent="."]
+position = Vector2( 145.234, 65.322 )
+rotation = 3.14159
+normal = ExtResource( 7 )
+action = "down"
+
+[node name="left" type="TouchScreenButton" parent="."]
+position = Vector2( 0, 65.322 )
+rotation = -1.57079
+normal = ExtResource( 7 )
+action = "left"
+
+[node name="right" type="TouchScreenButton" parent="."]
+position = Vector2( 19.8635, 13.6278 )
+rotation = 1.57079
+normal = ExtResource( 7 )
+action = "right"
+
+[node name="loch1" type="Area2D" parent="."]
+position = Vector2( -64.144, -1.45996 )
+script = ExtResource( 8 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="loch1"]
+position = Vector2( 166.827, 53.4253 )
+scale = Vector2( 0.0268295, 0.0268295 )
+shape = SubResource( 5 )
+
+[node name="loch1leer" type="Sprite" parent="loch1"]
+visible = false
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 166.893, 53.4547 )
+scale = Vector2( 0.0268295, 0.0268295 )
+texture = ExtResource( 10 )
+
+[node name="loch2" type="Area2D" parent="."]
+position = Vector2( -63.946, -1.45996 )
+script = ExtResource( 11 )
+
+[node name="loch2leer" type="Sprite" parent="loch2"]
+visible = false
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 125.947, 45.4206 )
+scale = Vector2( 0.0267795, 0.0267795 )
+texture = ExtResource( 10 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="loch2"]
+position = Vector2( 125.872, 45.4165 )
+shape = SubResource( 6 )
+
+[node name="loch3" type="Area2D" parent="."]
+position = Vector2( -40.3667, -7.40989 )
+script = ExtResource( 12 )
+
+[node name="loch3leer" type="Sprite" parent="loch3"]
+visible = false
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 125.672, 45.6414 )
+scale = Vector2( 0.026695, 0.026695 )
+texture = ExtResource( 10 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="loch3"]
+position = Vector2( 125.872, 45.4165 )
+shape = SubResource( 6 )
+
+[node name="loch4" type="Area2D" parent="."]
+position = Vector2( -24.1081, -18.0402 )
+script = ExtResource( 13 )
+
+[node name="loch4leer" type="Sprite" parent="loch4"]
+visible = false
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 125.78, 45.4802 )
+scale = Vector2( 0.0266949, 0.0266949 )
+texture = ExtResource( 10 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="loch4"]
+position = Vector2( 125.872, 45.4165 )
+shape = SubResource( 6 )
+
+[node name="loch5" type="Area2D" parent="."]
+position = Vector2( -32.9516, -34.828 )
+script = ExtResource( 14 )
+
+[node name="loch5leer" type="Sprite" parent="loch5"]
+visible = false
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 125.834, 45.7464 )
+scale = Vector2( 0.0262768, 0.0262768 )
+texture = ExtResource( 10 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="loch5"]
+position = Vector2( 125.872, 45.4165 )
+shape = SubResource( 6 )
+
+[node name="loch6" type="Area2D" parent="."]
+position = Vector2( -58.4332, -34.9779 )
+script = ExtResource( 16 )
+
+[node name="loch6leer" type="Sprite" parent="loch6"]
+visible = false
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 125.807, 45.7745 )
+scale = Vector2( 0.0264859, 0.0264859 )
+texture = ExtResource( 10 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="loch6"]
+position = Vector2( 125.872, 45.4165 )
+shape = SubResource( 6 )
+
+[node name="loch7" type="Area2D" parent="."]
+position = Vector2( -66.6797, -17.2932 )
+script = ExtResource( 15 )
+
+[node name="loch7leer" type="Sprite" parent="loch7"]
+visible = false
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 125.477, 45.6679 )
+scale = Vector2( 0.0270035, 0.0263975 )
+texture = ExtResource( 10 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="loch7"]
+position = Vector2( 125.872, 45.4165 )
+shape = SubResource( 6 )
+
+[node name="exitpoly" type="TextureButton" parent="."]
+margin_left = -20.6972
+margin_top = 61.693
+margin_right = -0.697128
+margin_bottom = 81.693
+texture_normal = ExtResource( 18 )
+script = ExtResource( 17 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="fail" type="Area2D" parent="."]
+position = Vector2( -63.946, -1.45996 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="fail"]
+position = Vector2( 123.952, 9.96508 )
+polygon = PoolVector2Array( -10.2652, -9.4208, -10.1645, 56.368, 55.4879, 56.2181, 55.0383, -9.28442, 32.8543, -8.98464, 33.304, -2.38942, 35.8522, -0.74062, 36.9014, 2.10732, 35.7023, 5.10514, 31.8051, 6.30427, 31.6552, 16.7967, 38.7001, 16.4969, 41.548, 14.0986, 43.047, 15.2977, 45.2953, 16.9466, 45.2953, 18.7452, 42.8971, 22.1927, 40.0491, 21.893, 37.9507, 20.6938, 37.9507, 18.2956, 37.8008, 16.7967, 31.5053, 17.2463, 41.2483, 39.4302, 43.6465, 39.4302, 46.6443, 41.8285, 45.5951, 45.4259, 41.9977, 46.9248, 38.7001, 45.276, 38.7001, 42.2782, 40.199, 40.3296, 40.7986, 38.9806, 34.653, 24.8908, 28.3576, 27.4389, 29.2569, 30.137, 28.0578, 32.2355, 24.9101, 33.2847, 21.9123, 31.486, 20.863, 27.8886, 23.711, 26.3897, 26.5589, 26.2398, 27.4583, 26.6895, 29.2569, 26.5396, 33.9036, 24.591, 33.6038, 23.242, 31.2055, 17.696, 4.82466, 32.5353, 5.8739, 35.8329, 5.27434, 37.1819, 3.77543, 38.6808, 0.927498, 38.381, -1.02109, 37.1819, -1.92044, 33.2847, 0.17804, 31.9357, 3.02598, 31.3361, 3.92532, 31.9357, -1.02109, 23.5418, -4.46859, 21.5932, -4.61848, 19.045, -3.86903, 16.9466, -1.77055, 16.0472, 1.52706, 16.347, 1.97674, 18.2956, 2.12663, 20.9936, 0.627716, 22.7923, -0.721306, 23.3919, 4.2251, 31.486, 4.97456, 31.6359, 6.92314, 31.0363, 22.0622, 22.3426, 9.4713, 5.40492, 6.47346, 5.55481, 4.52489, 4.50557, 3.47565, 1.65764, 4.52489, -1.34019, 7.67261, -2.23953, 10.5205, 0.30862, 10.5205, 3.30645, 9.92097, 4.80536, 22.362, 22.3426, 31.2055, 17.2463, 31.3554, 5.8546, 29.1071, 3.15656, 28.9572, 0.458511, 30.606, -1.1903, 32.1049, -1.93975, 32.7045, -4.33801, 32.1049, -9.58421 )
+[connection signal="action" from="bohrer" to="funken" method="_on_bohrer_action"]
+[connection signal="actionover" from="bohrer" to="funken" method="_on_bohrer_actionover"]
+[connection signal="idle" from="bohrer" to="funken" method="_on_bohrer_idle"]
+[connection signal="body_entered" from="loch1" to="loch1" method="_on_loch1_body_entered"]
+[connection signal="loch1s" from="loch1" to="." method="_on_loch1_loch1s"]
+[connection signal="body_entered" from="loch2" to="loch2" method="_on_loch2_body_entered"]
+[connection signal="loch2s" from="loch2" to="." method="_on_loch2_loch2s"]
+[connection signal="body_entered" from="loch3" to="loch3" method="_on_loch3_body_entered"]
+[connection signal="loch3s" from="loch3" to="." method="_on_loch3_loch3s"]
+[connection signal="body_entered" from="loch4" to="loch4" method="_on_loch4_body_entered"]
+[connection signal="loch4s" from="loch4" to="." method="_on_loch4_loch4s"]
+[connection signal="body_entered" from="loch5" to="loch5" method="_on_loch5_body_entered"]
+[connection signal="loch5s" from="loch5" to="." method="_on_loch5_loch5s"]
+[connection signal="body_entered" from="loch6" to="loch6" method="_on_loch6_body_entered"]
+[connection signal="loch6s" from="loch6" to="." method="_on_loch6_loch6s"]
+[connection signal="body_entered" from="loch7" to="loch7" method="_on_loch7_body_entered"]
+[connection signal="loch7s" from="loch7" to="." method="_on_loch7_loch7s"]
+[connection signal="pressed" from="exitpoly" to="exitpoly" method="_on_exitpoly_pressed"]
+[connection signal="body_entered" from="fail" to="." method="_on_fail_body_entered"]
+[connection signal="body_exited" from="fail" to="." method="_on_fail_body_exited"]

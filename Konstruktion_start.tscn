@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Assets/startgame_Konstruktion.png" type="Texture" id=1]
+[ext_resource path="res://Assets/weiter.png" type="Texture" id=2]
+[ext_resource path="res://scriptTouchScreenButton.gd" type="Script" id=3]
+[ext_resource path="res://Assets/Konstruktion_minigame_text.png" type="Texture" id=4]
+
+[node name="Knstruktion_start" type="Node2D"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="TextureRect"]
+position = Vector2( 102.099, 74.0092 )
+normal = ExtResource( 2 )
+action = "weiter"
+script = ExtResource( 3 )
+
+[node name="Konstruktion_minigame_text" type="Sprite" parent="."]
+position = Vector2( 86.1529, 42.3487 )
+scale = Vector2( 0.168991, 0.168991 )
+texture = ExtResource( 4 )
