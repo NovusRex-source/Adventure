@@ -1,0 +1,250 @@
+[gd_scene load_steps=24 format=2]
+
+[ext_resource path="res://scriptautomation2.gd" type="Script" id=1]
+[ext_resource path="res://Assets/schneidematte.png" type="Texture" id=2]
+[ext_resource path="res://Assets/gluebirneaus.png" type="Texture" id=3]
+[ext_resource path="res://Assets/gluebirnean.png" type="Texture" id=4]
+[ext_resource path="res://scriptgluebirne2.gd" type="Script" id=5]
+[ext_resource path="res://Assets/batterie.png" type="Texture" id=6]
+[ext_resource path="res://Assets/kabel_klein.png" type="Texture" id=7]
+[ext_resource path="res://scriptkabel_klein.gd" type="Script" id=8]
+[ext_resource path="res://Assets/Kabel_lang.png" type="Texture" id=9]
+[ext_resource path="res://scriptkabel_lang.gd" type="Script" id=10]
+[ext_resource path="res://scriptkabel_lang2.gd" type="Script" id=11]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 94.0859, 79.9345 )
+
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 15.9757
+height = 81.7561
+
+[sub_resource type="CircleShape2D" id=3]
+radius = 45.9129
+
+[sub_resource type="CircleShape2D" id=4]
+radius = 65.4505
+
+[sub_resource type="CircleShape2D" id=5]
+radius = 41.9687
+
+[sub_resource type="CircleShape2D" id=6]
+radius = 64.9491
+
+[sub_resource type="CapsuleShape2D" id=7]
+radius = 35.4172
+height = 134.062
+
+[sub_resource type="CapsuleShape2D" id=8]
+radius = 30.0415
+height = 144.348
+
+[sub_resource type="CapsuleShape2D" id=9]
+radius = 29.4119
+height = 150.182
+
+[sub_resource type="CapsuleShape2D" id=10]
+radius = 32.167
+height = 134.053
+
+[sub_resource type="CapsuleShape2D" id=11]
+radius = 31.7029
+height = 113.444
+
+[sub_resource type="CapsuleShape2D" id=12]
+radius = 29.4932
+height = 126.429
+
+[node name="automation2" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_left = -1.70922
+margin_top = -89.934
+margin_right = 240.291
+margin_bottom = 92.066
+texture = ExtResource( 2 )
+expand = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="gluebirne" type="TouchScreenButton" parent="."]
+position = Vector2( 119.519, 0.065 )
+scale = Vector2( 0.06, 0.06 )
+normal = ExtResource( 3 )
+
+[node name="areagluebirne" type="Area2D" parent="gluebirne"]
+
+[node name="pluspol" type="CollisionShape2D" parent="gluebirne/areagluebirne"]
+position = Vector2( 222.147, 632.228 )
+shape = SubResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="area2gluebirne" type="Area2D" parent="gluebirne"]
+
+[node name="minuspol" type="CollisionShape2D" parent="gluebirne/area2gluebirne"]
+position = Vector2( 219.383, 729.754 )
+rotation = 1.57079
+shape = SubResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="gluebirne2" type="TouchScreenButton" parent="."]
+visible = false
+position = Vector2( 117.497, -2.30894 )
+scale = Vector2( 0.06, 0.06 )
+normal = ExtResource( 4 )
+script = ExtResource( 5 )
+
+[node name="batterie" type="TouchScreenButton" parent="."]
+position = Vector2( 49.489, 31.147 )
+rotation = 1.57079
+scale = Vector2( 0.05, 0.05 )
+normal = ExtResource( 6 )
+
+[node name="areabatterie" type="Area2D" parent="batterie"]
+
+[node name="pluspol" type="CollisionShape2D" parent="batterie/areabatterie"]
+position = Vector2( 110.261, 120.471 )
+shape = SubResource( 3 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="area2batterie" type="Area2D" parent="batterie"]
+position = Vector2( 63.2981, 5.1048 )
+
+[node name="minuspol" type="CollisionShape2D" parent="batterie/area2batterie"]
+position = Vector2( 254.213, 113.325 )
+shape = SubResource( 4 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="batterie2" type="TouchScreenButton" parent="."]
+position = Vector2( 49.218, 64.564 )
+rotation = 1.57079
+scale = Vector2( 0.05, 0.05 )
+normal = ExtResource( 6 )
+
+[node name="areabatterie2" type="Area2D" parent="batterie2"]
+
+[node name="pluspol2" type="CollisionShape2D" parent="batterie2/areabatterie2"]
+position = Vector2( 109.729, 118.78 )
+shape = SubResource( 5 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="area2batterie2" type="Area2D" parent="batterie2"]
+
+[node name="minuspol2" type="CollisionShape2D" parent="batterie2/area2batterie2"]
+position = Vector2( 313.935, 115.418 )
+shape = SubResource( 6 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="kabel_klein" type="TouchScreenButton" parent="."]
+position = Vector2( 167.365, 23.138 )
+rotation = 1.5708
+scale = Vector2( 0.024, 0.029 )
+normal = ExtResource( 7 )
+action = "kabel_klein"
+script = ExtResource( 8 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="areakabel_klein" type="Area2D" parent="kabel_klein"]
+
+[node name="kontakt" type="CollisionShape2D" parent="kabel_klein/areakabel_klein"]
+position = Vector2( 92.4847, 246.237 )
+rotation = 1.57079
+shape = SubResource( 7 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="area2kabel_klein" type="Area2D" parent="kabel_klein"]
+position = Vector2( 46.4739, -5.01636 )
+
+[node name="kontakt2" type="CollisionShape2D" parent="kabel_klein/area2kabel_klein"]
+position = Vector2( 898.025, 236.267 )
+rotation = 1.57079
+shape = SubResource( 8 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="kabel_lang" type="TouchScreenButton" parent="."]
+position = Vector2( 77.3556, 71.873 )
+scale = Vector2( 0.03, 0.03 )
+normal = ExtResource( 9 )
+action = "kabel_lang"
+script = ExtResource( 10 )
+
+[node name="areakabel_lang" type="Area2D" parent="kabel_lang"]
+
+[node name="kabel_lang_kontakt" type="CollisionShape2D" parent="kabel_lang/areakabel_lang"]
+position = Vector2( 98.8223, 67.2399 )
+rotation = 1.57079
+shape = SubResource( 9 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="area2kabel_lang" type="Area2D" parent="kabel_lang"]
+
+[node name="kabel_lang_kontakt2" type="CollisionShape2D" parent="kabel_lang/area2kabel_lang"]
+position = Vector2( 2905.69, 24.125 )
+rotation = 1.57079
+shape = SubResource( 10 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="kabel_lang2" type="TouchScreenButton" parent="."]
+position = Vector2( 79.6207, 86.7179 )
+rotation = -0.371755
+scale = Vector2( 0.032, 0.032 )
+normal = ExtResource( 9 )
+action = "kabel_lang2"
+script = ExtResource( 11 )
+
+[node name="areakabel_lang2" type="Area2D" parent="kabel_lang2"]
+
+[node name="kabel_lang2_kontakt" type="CollisionShape2D" parent="kabel_lang2/areakabel_lang2"]
+position = Vector2( 90.8993, 66.2993 )
+rotation = 1.56228
+shape = SubResource( 11 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="area2_kabel_lang2" type="Area2D" parent="kabel_lang2"]
+
+[node name="kabel_lang2_kontakt2" type="CollisionShape2D" parent="kabel_lang2/area2_kabel_lang2"]
+position = Vector2( 2906, 27.1719 )
+rotation = 1.56394
+shape = SubResource( 12 )
+__meta__ = {
+"_edit_lock_": true
+}
+[connection signal="licht" from="." to="gluebirne2" method="_on_automation2_licht"]
+[connection signal="area_entered" from="kabel_klein/areakabel_klein" to="." method="_on_areakabel_klein_area_entered"]
+[connection signal="area_exited" from="kabel_klein/areakabel_klein" to="." method="_on_areakabel_klein_area_exited"]
+[connection signal="area_entered" from="kabel_klein/area2kabel_klein" to="." method="_on_area2kabel_klein_area_entered"]
+[connection signal="area_exited" from="kabel_klein/area2kabel_klein" to="." method="_on_area2kabel_klein_area_exited"]
+[connection signal="area_entered" from="kabel_lang/areakabel_lang" to="." method="_on_areakabel_lang_area_entered"]
+[connection signal="area_exited" from="kabel_lang/areakabel_lang" to="." method="_on_areakabel_lang_area_exited"]
+[connection signal="area_entered" from="kabel_lang/area2kabel_lang" to="." method="_on_area2kabel_lang_area_entered"]
+[connection signal="area_exited" from="kabel_lang/area2kabel_lang" to="." method="_on_area2kabel_lang_area_exited"]
+[connection signal="area_entered" from="kabel_lang2/areakabel_lang2" to="." method="_on_areakabel_lang2_area_entered"]
+[connection signal="area_exited" from="kabel_lang2/areakabel_lang2" to="." method="_on_areakabel_lang2_area_exited"]
+[connection signal="area_entered" from="kabel_lang2/area2_kabel_lang2" to="." method="_on_area2_kabel_lang2_area_entered"]
+[connection signal="area_exited" from="kabel_lang2/area2_kabel_lang2" to="." method="_on_area2_kabel_lang2_area_exited"]

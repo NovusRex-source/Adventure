@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Assets/startgame_automation.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Automation_minigame_text2.png.import.png" type="Texture" id=2]
+[ext_resource path="res://scriptautomation2_1.gd" type="Script" id=3]
+[ext_resource path="res://Assets/weiter.png" type="Texture" id=4]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="lvl2" type="Sprite" parent="."]
+position = Vector2( 90.0359, 44.9861 )
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="weiter" type="TouchScreenButton" parent="lvl2"]
+position = Vector2( 12.0059, 28.9533 )
+normal = ExtResource( 4 )
+action = "start"
+
+[node name="gametext" type="Sprite" parent="."]
+position = Vector2( 90.2958, 43.8515 )
+scale = Vector2( 0.166337, 0.166337 )
+texture = ExtResource( 2 )
+[connection signal="released" from="lvl2/weiter" to="." method="_on_weiter_released"]

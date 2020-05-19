@@ -1,0 +1,83 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://automationscript.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Kabel_rot2.png" type="Texture" id=2]
+[ext_resource path="res://scriptkabel.gd" type="Script" id=3]
+[ext_resource path="res://Assets/Kabel_lang.png" type="Texture" id=4]
+[ext_resource path="res://scriptkabel2.gd" type="Script" id=5]
+[ext_resource path="res://Assets/loetkolben.png" type="Texture" id=6]
+[ext_resource path="res://scriptloetkolben.gd" type="Script" id=7]
+[ext_resource path="res://Assets/schneidematte.png" type="Texture" id=8]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 32.1575
+height = 155.164
+
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 39.4396
+height = 122.015
+
+[sub_resource type="CircleShape2D" id=3]
+
+[node name="automation1" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_left = -1.27612
+margin_top = -90.7783
+margin_right = 240.724
+margin_bottom = 91.2217
+texture = ExtResource( 8 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="kabel" type="TouchScreenButton" parent="."]
+position = Vector2( -155.863, 65.5697 )
+scale = Vector2( 0.063, 0.063 )
+normal = ExtResource( 2 )
+action = "kabel"
+script = ExtResource( 3 )
+
+[node name="areakabel" type="Area2D" parent="kabel"]
+position = Vector2( 2809.09, 51.3546 )
+
+[node name="Collisionkabel" type="CollisionShape2D" parent="kabel/areakabel"]
+position = Vector2( 100.644, 11.9408 )
+rotation = 1.10767
+shape = SubResource( 1 )
+
+[node name="kabel2" type="TouchScreenButton" parent="."]
+position = Vector2( 81.0537, 65.0473 )
+rotation = 0.740729
+scale = Vector2( 0.063, 0.055 )
+normal = ExtResource( 4 )
+action = "kabel2"
+script = ExtResource( 5 )
+
+[node name="areakabel2" type="Area2D" parent="kabel2"]
+
+[node name="Collisionkabel2" type="CollisionShape2D" parent="kabel2/areakabel2"]
+position = Vector2( 94.8291, 68.2827 )
+rotation = -1.55685
+shape = SubResource( 2 )
+
+[node name="loetkolben" type="TouchScreenButton" parent="."]
+position = Vector2( 58.2185, -11.1143 )
+scale = Vector2( 0.122, 0.122 )
+normal = ExtResource( 6 )
+action = "kolben"
+script = ExtResource( 7 )
+
+[node name="arealoetkolben" type="Area2D" parent="loetkolben"]
+
+[node name="Collisionloetkolben" type="CollisionShape2D" parent="loetkolben/arealoetkolben"]
+position = Vector2( 13.0203, 493.526 )
+shape = SubResource( 3 )
+[connection signal="area_entered" from="kabel/areakabel" to="." method="_on_areakabel_area_entered"]
+[connection signal="area_exited" from="kabel/areakabel" to="." method="_on_areakabel_area_exited"]
+[connection signal="area_entered" from="kabel2/areakabel2" to="." method="_on_areakabel2_area_entered"]
+[connection signal="area_exited" from="kabel2/areakabel2" to="." method="_on_areakabel2_area_exited"]
+[connection signal="area_entered" from="loetkolben/arealoetkolben" to="." method="_on_arealoetkolben_area_entered"]
+[connection signal="area_exited" from="loetkolben/arealoetkolben" to="." method="_on_arealoetkolben_area_exited"]
